@@ -3,6 +3,7 @@ package com.bbd.message.service;
 import com.bbd.message.service.model.EmailRequestVO;
 import com.bbd.message.service.result.MessageResult;
 import com.bbd.message.service.result.SendEmailResult;
+import com.bbd.message.service.result.SmsResult;
 
 /**
  * @author fisher
@@ -11,5 +12,7 @@ import com.bbd.message.service.result.SendEmailResult;
 public interface MessageService {
 
     MessageResult<SendEmailResult> sendEmail(EmailRequestVO request);
+
+    MessageResult<SmsResult> sendSMS(String target , String params , String smsTemplateCode);
 }
 
