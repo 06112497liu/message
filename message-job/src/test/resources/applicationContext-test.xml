@@ -1,0 +1,37 @@
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <import resource="classpath*:mybaits-dao.xml"/>
+
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="com.bbd.*"/>
+
+    <!-- 注解配置 -->
+    <context:annotation-config/>
+    <!-- aop代理 -->
+    <aop:aspectj-autoproxy/>
+    <bean id="propertiesConfig"
+          class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                 <value>classpath*:config_test.properties</value>
+            </list>
+        </property>
+        <!-- 设置编码格式 -->
+        <property name="fileEncoding" value="UTF-8"></property>
+    </bean>
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties" ref="propertiesConfig"/>
+        <property name="fileEncoding" value="utf-8"/>
+    </bean>
+
+
+</beans>
