@@ -78,6 +78,15 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bbd</groupId>
+            <artifactId>aliyun-java-sdk-dysmsap</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.bbd</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+        </dependency>
 
     </dependencies>
 

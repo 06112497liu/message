@@ -32,23 +32,27 @@ public class MessageListenerJob implements MessageListener<String,String> {
 
         String message =  data.value();
         System.out.println("消息： " + message);
-
-//        EmailRequestVO vo = new EmailRequestVO();
-//        vo.setSubject("事件总体热度预警");
-//        List to = new ArrayList();
-//        to.add("570366997@qq.com");
-//        to.add("18782020177@163.com");
-//        vo.setTo(to);
-//        vo.setCc(null);
-//        vo.setBcc(null);
-//        vo.setModel("{\"username\":\"fisher_111\",\"event\":\"特级事件\",\"score\":\"300\",\"level\":\"一\",\"link\":\"www.baidu.com\"}");
-//        vo.setTemplate("event_overall_heatLevel");
-//
-//        String jj = JSONObject.toJSONString(vo);
-//        System.out.print(jj);
-//        EmailRequestVO requestVO= JSON.parseObject(jj,EmailRequestVO.class);
-//        messageService.sendEmail(requestVO);
-
-        messageService.sendSMS("18782020177","test","SMS_73520001");
+        JSONObject mes = null;
+        try {
+             mes = (JSONObject) JSON.parse(message);
+        }catch (Exception e){
+            logger.error("",e);
+            return;
+        }
+        if("".equals(mes)){
+            return;
+        }
+        String type = mes.getString("type");
+        if("email".equals(type)){
+            String content = mes.getString("content");
+            EmailRequestVO request = JSON.parseObject(content,EmailRequestVO.class);
+            messageService.sendEmail(request);
+        }else if("sms".equals(type)){
+            String content = mes.getString("content");
+            JSONObject obj = JSON.parseObject(content);
+            messageService.sendSMS(obj.getString("tel"),obj.getString("model"),obj.getString("templateCode"));
+        }else{
+            return;
+        }
     }
 }

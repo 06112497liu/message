@@ -18,10 +18,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.taobao</groupId>
-            <artifactId>taobao-sdk-java-auto</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
