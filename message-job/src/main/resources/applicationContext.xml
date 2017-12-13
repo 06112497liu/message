@@ -31,8 +31,8 @@
     <bean id="consumerProperties" class="java.util.HashMap">
         <constructor-arg>
             <map>
-                <entry key="bootstrap.servers" value="10.28.100.69:9092"/>
-                <entry key="group.id" value="test_group_001"/>
+                <entry key="bootstrap.servers" value="${kafka.host}"/>
+                <entry key="group.id" value="${kafka.group}"/>
                 <entry key="enable.auto.commit" value="true"/>
                 <entry key="auto.commit.interval.ms" value="1000"/>
                 <entry key="session.timeout.ms" value="30000"/>
@@ -55,7 +55,7 @@
     <!-- 消费者容器配置信息 -->
     <bean id="containerProperties" class="org.springframework.kafka.listener.config.ContainerProperties">
         <!-- 重要！配置topic -->
-        <constructor-arg value="test3"/>
+        <constructor-arg value="${kafka.topic}"/>
         <property name="messageListener" ref="messageListernerConsumerService"/>
     </bean>
 
