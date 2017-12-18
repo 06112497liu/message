@@ -6,14 +6,20 @@
     <includeBaseDirectory>true</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <directory>src/main/assembly/conf/test</directory>
+            <directory>${project.build.directory}/bin
+            </directory>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/assembly/conf</directory>
             <outputDirectory>conf</outputDirectory>
             <fileMode>0644</fileMode>
         </fileSet>
         <fileSet>
-            <directory>${project.basedir}\src\bin</directory>
-            <outputDirectory>bin</outputDirectory>
-            <fileMode>0755</fileMode>
+            <directory>src/main/assembly/template</directory>
+            <outputDirectory>template</outputDirectory>
+            <fileMode>0644</fileMode>
         </fileSet>
     </fileSets>
     <dependencySets>
@@ -21,5 +27,4 @@
             <outputDirectory>lib</outputDirectory>
         </dependencySet>
     </dependencySets>
-
 </assembly>

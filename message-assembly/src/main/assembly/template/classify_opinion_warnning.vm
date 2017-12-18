@@ -1,0 +1,6 @@
+${username} 用户您好:
+
+重大消费舆情事件预警系统新增${levelone}条一级预警舆情、${leveltwo}条二级预警舆情、${levelthree}条三级预警舆情，热度最高达${score}分，请及时关注.
+
+具体详情参见 ${link}
+

@@ -15,6 +15,7 @@
         <module>message-dao</module>
         <module>message-service</module>
         <module>message-job</module>
+        <module>message-assembly</module>
     </modules>
 
     <properties>

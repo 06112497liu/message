@@ -4,6 +4,9 @@
  */
 package com.bbd.message.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -14,14 +17,18 @@ import java.net.URL;
  * @version $Id: FileUtils.java, v 0.1 2016/9/11 17:04 chenshiwei Exp $
  */
 public class FileUtils {
+    private static Logger logger = LoggerFactory.getLogger(FileUtils.class);
 
     public static File getDirFromClassPath(String basePath) {
+        System.out.println("basePath : "+basePath);
         File basePathDir = null;
         URL cache = FileUtils.class.getClassLoader().getResource(basePath);
         if (null == cache) {
+            System.out.println("cache is null");
             URL resource = FileUtils.class.getClassLoader().getResource("");
             basePathDir = new File(resource.getFile(), basePath);
         } else {
+            System.out.println("cache is not null");
             basePathDir = new File(cache.getFile());
         }
 

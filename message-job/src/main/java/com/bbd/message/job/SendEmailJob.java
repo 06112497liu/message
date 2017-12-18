@@ -27,7 +27,7 @@ public class SendEmailJob {
         logger.debug("SendEmailJob start...");
         try {
             emailConsumerService.consume();
-            logger.info("SendEmailJob success...");
+            //logger.info("SendEmailJob success...");
         } catch (Exception e) {
             logger.error("SendEmailJob failed.", e);
         }

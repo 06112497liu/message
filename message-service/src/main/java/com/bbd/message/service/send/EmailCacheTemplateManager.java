@@ -19,18 +19,19 @@ public class EmailCacheTemplateManager implements EmailTemplateManager {
     /** 日志 */
     private static Logger logger = LoggerFactory.getLogger(EmailCacheTemplateManager.class);
 
-    private File defalut_dir = null;
+    private File default_dir = null;
 
     @PostConstruct
     public void initBaseDir() {
-        defalut_dir = FileUtils.getDirFromClassPath("template");
+        default_dir = FileUtils.getDirFromClassPath("template");
+        System.out.println("default path :"+ default_dir);
     }
     @Override
     public File getTemplateFile(String templateName, String version, String url,
                                 BtTemplateEngineEnum templateEngine) {
         try {
             String fileName = MessageFormat.format("{0}.{1}", templateName, templateEngine.getSuffix());
-            return new File(defalut_dir,fileName);
+            return new File(default_dir,fileName);
         } catch (Exception e) {
             logger.error(MessageFormat.format("获取模板文件：{0}出错，将使用默认模板发送.", url), e);
             return getDefaultFile(templateEngine);
@@ -40,7 +41,7 @@ public class EmailCacheTemplateManager implements EmailTemplateManager {
     @Override
     public File getDefaultFile(BtTemplateEngineEnum templateEngine) {
         logger.debug("使用默认模板.");
-        File file = new File(defalut_dir,
+        File file = new File(default_dir,
                 templateEngine.getDefaultTemplateFileName());
         if (!file.exists()) {
             logger.error("默认邮件模板缺失!!!");
