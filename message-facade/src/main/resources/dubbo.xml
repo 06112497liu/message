@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+
+    <!-- 注解 -->
+
+    <dubbo:application name="${app_name}" owner="${app_owner}"/>
+    <dubbo:registry address="${app_registry}"/>
+    <dubbo:protocol contextpath="${app_protocol_name}" port="${app_port}"/>
+    <dubbo:monitor protocol="${app_monitor_registry}"/>
+
+    <dubbo:service
+            interface="com.bbd.message.facade.MessageFacade"
+            ref="messageFacade" protocol="dubbo" timeout="50000"/>
+
+</beans>

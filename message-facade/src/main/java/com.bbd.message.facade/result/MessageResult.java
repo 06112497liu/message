@@ -1,4 +1,4 @@
-package com.bbd.message.service.result;
+package com.bbd.message.facade.result;
 
 import java.io.Serializable;
 

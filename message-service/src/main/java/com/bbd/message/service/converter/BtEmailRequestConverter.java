@@ -2,10 +2,10 @@ package com.bbd.message.service.converter;
 
 import com.bbd.domain.BtEmailRequest;
 import com.bbd.message.enums.BtEmailRequestStatusEnum;
+import com.bbd.message.facade.mode.EmailRequestVO;
 import com.bbd.message.service.model.BtEmailModel;
 import com.bbd.message.service.model.BtEmailRequestModel;
 import com.bbd.message.service.model.BtTemplateModel;
-import com.bbd.message.service.model.EmailRequestVO;
 
 /**
  * @author fisher

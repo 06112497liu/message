@@ -1,9 +1,8 @@
-package com.bbd.message.service.model;
+package com.bbd.message.facade.mode;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author fisher

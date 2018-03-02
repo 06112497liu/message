@@ -16,6 +16,7 @@
         <module>message-service</module>
         <module>message-job</module>
         <module>message-assembly</module>
+        <module>message-facade</module>
     </modules>
 
     <properties>
@@ -35,6 +36,7 @@
         <kafka_version>0.8.2.0</kafka_version>
         <spring_kafka_version>2.0.0.RELEASE</spring_kafka_version>
         <slf4j.version>1.7.7</slf4j.version>
+        <dubbo_version>2.5.3</dubbo_version>
     </properties>
 
     <dependencyManagement>
@@ -169,7 +171,7 @@
             <dependency>
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
-                <version>0.10.1.1</version>
+                <version>0.11.0.2</version>
             </dependency>
             <dependency>
                 <groupId>com.bbd</groupId>
@@ -194,6 +196,20 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+
+            <!-- rpc start -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- rpc end -->
 
         </dependencies>
     </dependencyManagement>

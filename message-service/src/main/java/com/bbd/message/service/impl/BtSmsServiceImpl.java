@@ -1,7 +1,7 @@
 package com.bbd.message.service.impl;
 
+import com.bbd.message.facade.result.SmsResult;
 import com.bbd.message.service.BtSmsService;
-import com.bbd.message.service.result.SmsResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

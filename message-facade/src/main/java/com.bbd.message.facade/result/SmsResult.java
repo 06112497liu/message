@@ -2,7 +2,7 @@
  * BBD Service Inc
  * All Rights Reserved @2016
  */
-package com.bbd.message.service.result;
+package com.bbd.message.facade.result;
 
 import java.io.Serializable;
 

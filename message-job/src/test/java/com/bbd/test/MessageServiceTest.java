@@ -1,16 +1,14 @@
 package com.bbd.test;
 
-import com.bbd.message.service.MessageService;
-import com.bbd.message.service.model.EmailRequestVO;
-import com.bbd.message.service.result.MessageResult;
-import com.bbd.message.service.result.SendEmailResult;
+import com.bbd.message.facade.MessageFacade;
+import com.bbd.message.facade.mode.EmailRequestVO;
+import com.bbd.message.facade.result.MessageResult;
+import com.bbd.message.facade.result.SendEmailResult;
 import org.junit.Test;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author fisher
@@ -18,7 +16,7 @@ import java.util.Map;
  */
 public class MessageServiceTest extends BaseJobTest {
     @Resource
-    private MessageService messageService;
+    private MessageFacade messageService;
 
     @Test
     public void exeTest(){

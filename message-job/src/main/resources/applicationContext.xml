@@ -16,6 +16,7 @@
     <import resource="classpath*:mybaits-dao.xml"/>
     <import resource="classpath*:job-email.xml"/>
     <import resource="classpath*:job-task.xml"/>
+    <import resource="classpath*:dubbo.xml"/>
 
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.bbd.*"/>

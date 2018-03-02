@@ -54,5 +54,9 @@
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: com.bbd:aliyun-java-sdk-dysmsap:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.bbd:aliyun-java-sdk-core:1.0" level="project" />
+    <orderEntry type="module" module-name="message-facade" />
+    <orderEntry type="library" name="Maven: com.alibaba:dubbo:2.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.15.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.netty:netty:3.2.5.Final" level="project" />
   </component>
 </module>

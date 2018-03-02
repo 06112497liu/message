@@ -87,6 +87,11 @@
             <groupId>com.bbd</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.bbd</groupId>
+            <artifactId>message-facade</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 

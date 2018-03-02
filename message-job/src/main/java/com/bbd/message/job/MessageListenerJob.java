@@ -2,17 +2,14 @@ package com.bbd.message.job;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.bbd.message.service.MessageService;
-import com.bbd.message.service.model.EmailRequestVO;
+import com.bbd.message.facade.MessageFacade;
+import com.bbd.message.facade.mode.EmailRequestVO;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.listener.MessageListener;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author fisher
@@ -24,7 +21,7 @@ public class MessageListenerJob implements MessageListener<String,String> {
     private static final Logger logger = LoggerFactory.getLogger(MessageListenerJob.class);
 
     @Autowired
-    private MessageService messageService;
+    private MessageFacade messageService;
 
 
     @Override

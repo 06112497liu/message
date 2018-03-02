@@ -1,7 +1,7 @@
 package com.bbd.message.service;
 
-import com.bbd.message.service.result.MessageResult;
-import com.bbd.message.service.result.SmsResult;
+
+import com.bbd.message.facade.result.SmsResult;
 
 /**
  * @author fisher
