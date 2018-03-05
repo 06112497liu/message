@@ -6,13 +6,13 @@
 
 
     <parent>
-        <groupId>com.bbd</groupId>
+        <groupId>com.bbd.reddata</groupId>
         <artifactId>message-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.bbd</groupId>
+    <groupId>com.bbd.reddata</groupId>
     <artifactId>message-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
