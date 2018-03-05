@@ -7,7 +7,7 @@
 
     <groupId>com.bbd.reddata</groupId>
     <artifactId>message-parent</artifactId>
-    <version>1.0.0-snapshot</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -158,25 +158,19 @@
             </dependency>
 
             <dependency>
-                <groupId>org.apache.kafka</groupId>
-                <artifactId>kafka_2.10</artifactId>
-                <version>${kafka_version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.integration</groupId>
-                <artifactId>spring-integration-kafka</artifactId>
-                <version>${spring_kafka_version}</version>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>  <!-- kafka-clients Version 0.10.0.x, 0.10.1.x -->
+                <version>1.1.1.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
-                <version>0.12.1.0</version>
+                <version>0.10.1.0</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.kafka</groupId>
-                <artifactId>spring-kafka</artifactId>
-                <version>1.0.0.RC1</version>
+                <groupId>org.springframework.integration</groupId>
+                <artifactId>spring-integration-kafka</artifactId>
+                <version>2.0.1.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>com.bbd</groupId>
