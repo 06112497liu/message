@@ -14,6 +14,15 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../message-assembly/src/main/assembly/conf/test" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="module" module-name="message-common" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.6" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.9.RELEASE" level="project" />
@@ -55,8 +64,6 @@
     <orderEntry type="library" name="Maven: com.bbd:aliyun-java-sdk-dysmsap:1.0" level="project" />
     <orderEntry type="library" name="Maven: com.bbd:aliyun-java-sdk-core:1.0" level="project" />
     <orderEntry type="module" module-name="message-facade" />
-    <orderEntry type="library" name="Maven: com.alibaba:dubbo:2.5.3" level="project" />
-    <orderEntry type="library" name="Maven: org.javassist:javassist:3.15.0-GA" level="project" />
-    <orderEntry type="library" name="Maven: org.jboss.netty:netty:3.2.5.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:dubbo:3.0.0" level="project" />
   </component>
 </module>
