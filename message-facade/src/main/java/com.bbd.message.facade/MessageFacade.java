@@ -13,5 +13,7 @@ public interface MessageFacade {
 
     MessageResult<SendEmailResult> sendEmail(EmailRequestVO request);
 
+    MessageResult<SendEmailResult> sendEmailAsync(EmailRequestVO request);
+
     MessageResult<SmsResult> sendSMS(String target , String params , String smsTemplateCode);
 }

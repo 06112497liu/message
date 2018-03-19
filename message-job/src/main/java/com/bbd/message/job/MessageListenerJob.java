@@ -43,7 +43,7 @@ public class MessageListenerJob implements MessageListener<String,String> {
         if("email".equals(type)){
             String content = mes.getString("content");
             EmailRequestVO request = JSON.parseObject(content,EmailRequestVO.class);
-            messageService.sendEmail(request);
+            messageService.sendEmailAsync(request);
         }else if("sms".equals(type)){
             String content = mes.getString("content");
             JSONObject obj = JSON.parseObject(content);

@@ -4,6 +4,7 @@ import com.bbd.message.facade.MessageFacade;
 import com.bbd.message.facade.mode.EmailRequestVO;
 import com.bbd.message.facade.result.MessageResult;
 import com.bbd.message.facade.result.SendEmailResult;
+import com.bbd.message.service.impl.MessageServiceImpl;
 import org.junit.Test;
 
 import javax.annotation.Resource;

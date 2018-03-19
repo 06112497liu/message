@@ -1,5 +1,6 @@
 package com.bbd.message.service.impl;
 
+import com.bbd.message.enums.BtEmailRequestStatusEnum;
 import com.bbd.message.facade.MessageFacade;
 import com.bbd.message.facade.mode.EmailRequestVO;
 import com.bbd.message.facade.result.MessageResult;
@@ -9,10 +10,14 @@ import com.bbd.message.service.BtEmailRequestService;
 import com.bbd.message.service.BtSmsService;
 import com.bbd.message.service.converter.BtEmailRequestConverter;
 import com.bbd.message.service.model.BtEmailRequestModel;
+import com.bbd.message.service.send.BbdEmailSender;
 import com.bbd.message.utils.Helpers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.MessageFormat;
 
 /**
  * @author fisher
@@ -21,6 +26,8 @@ import javax.annotation.Resource;
 @Service("messageFacade")
 public class MessageServiceImpl implements MessageFacade {
 
+    private Logger logger = LoggerFactory.getLogger(MessageServiceImpl.class);
+
     /** 邮件请求服务 */
     @Resource
     private BtEmailRequestService btEmailRequestService;
@@ -28,7 +35,42 @@ public class MessageServiceImpl implements MessageFacade {
     @Resource
     private BtSmsService btSmsService;
 
+    @Resource
+    private BbdEmailSender emailSender;
+
+    /**
+     * 同步发送邮件
+     * @param request
+     * @return
+     */
     public MessageResult<SendEmailResult> sendEmail(EmailRequestVO request) {
+        MessageResult result = new MessageResult();
+        Helpers.assertNotNull(request);
+        Helpers.assertNotNullOrEmpty(request.getTo());
+        SendEmailResult sendEmailResult = new SendEmailResult();
+        BtEmailRequestModel requestToSend = BtEmailRequestConverter.convertFromVO(request);
+        logger.debug("To send email:{}", requestToSend);
+
+        try {
+            emailSender.doSendHtmlEmail(requestToSend);
+            requestToSend.setBtEmailRequestStatus(BtEmailRequestStatusEnum.SUCCESS);
+            logger.debug("Send email success :{}", requestToSend);
+        } catch (Exception e) {
+            logger.error(MessageFormat.format("第{0,number}次发送邮件失败。邮件详情：{1}",
+                    requestToSend.getRetry() + 1, requestToSend), e);
+            requestToSend.setBtEmailRequestStatus(BtEmailRequestStatusEnum.FAILED);
+            requestToSend.setFailMessage(e.getMessage());
+        }
+        result.setData(requestToSend);
+        return result;
+    }
+
+    /**
+     * 异步
+     * @param request
+     * @return
+     */
+    public MessageResult<SendEmailResult> sendEmailAsync(EmailRequestVO request) {
         MessageResult result = new MessageResult();
         Helpers.assertNotNull(request);
         Helpers.assertNotNullOrEmpty(request.getTo());
