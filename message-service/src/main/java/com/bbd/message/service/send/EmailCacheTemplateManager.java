@@ -27,13 +27,13 @@ public class EmailCacheTemplateManager implements EmailTemplateManager {
         System.out.println("default path :"+ default_dir);
     }
     @Override
-    public File getTemplateFile(String templateName, String version, String url,
+    public File getTemplateFile(String templateName,
                                 BtTemplateEngineEnum templateEngine) {
         try {
             String fileName = MessageFormat.format("{0}.{1}", templateName, templateEngine.getSuffix());
             return new File(default_dir,fileName);
         } catch (Exception e) {
-            logger.error(MessageFormat.format("获取模板文件：{0}出错，将使用默认模板发送.", url), e);
+            logger.error(MessageFormat.format("获取模板文件：{0}出错，将使用默认模板发送.", templateName), e);
             return getDefaultFile(templateEngine);
         }
     }

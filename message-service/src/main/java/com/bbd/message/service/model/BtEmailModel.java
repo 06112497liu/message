@@ -1,5 +1,6 @@
 package com.bbd.message.service.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * @author fisher
  * @version $Id: BtEmailModel.java, v 0.1 2017/11/7 15:48 fisher Exp $
  */
-public class BtEmailModel {
+public class BtEmailModel  implements Serializable{
     /** 序列号id */
     private static final long  serialVersionUID = -2871854078237072485L;
 

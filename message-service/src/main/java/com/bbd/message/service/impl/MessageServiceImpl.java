@@ -47,7 +47,6 @@ public class MessageServiceImpl implements MessageFacade {
         MessageResult result = new MessageResult();
         Helpers.assertNotNull(request);
         Helpers.assertNotNullOrEmpty(request.getTo());
-        SendEmailResult sendEmailResult = new SendEmailResult();
         BtEmailRequestModel requestToSend = BtEmailRequestConverter.convertFromVO(request);
         logger.debug("To send email:{}", requestToSend);
 

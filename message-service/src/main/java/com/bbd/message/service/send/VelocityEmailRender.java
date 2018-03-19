@@ -83,8 +83,8 @@ public class VelocityEmailRender implements EmailRender {
             return emailTemplateManager.getDefaultFile(BtTemplateEngineEnum.VELOCITY);
         }
         //用模板最后修改时间做为 模板的版本
-        String version = String.valueOf(template.getGmtModified().getTime());
-        return emailTemplateManager.getTemplateFile(template.getName(), version, template.getUrl(),
+        //String version = String.valueOf(template.getGmtModified().getTime());
+        return emailTemplateManager.getTemplateFile(template.getName(),
             BtTemplateEngineEnum.VELOCITY);
     }
 

@@ -31,7 +31,7 @@ public interface EmailTemplateManager {
      * @param url               模板地址（可以是网络地址，本地地址，fastDFS地址等）
      * @param templateEngine    模板引擎   @return                  返回模板文件， 如果不存在， 则返回默认模板，如果连默认的模板都找不到，返回null
      */
-    File getTemplateFile(String templateName, String version, String url,
+    File getTemplateFile(String templateName,
                          BtTemplateEngineEnum templateEngine);
 
     /**
