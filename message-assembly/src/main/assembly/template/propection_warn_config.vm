@@ -1,0 +1,19 @@
+尊敬的${toUser}：
+	${time}，${modifyUser}在贵阳市工商局315消费维权指数系统中，将企业在${cycle}周期下，
+收到警示通知的触发条件由：
+
+	被投诉风险指数在${complainIndexOld}以上；
+	被投诉数量在${complainCountOld}件以上；
+	被投诉涉案金额在${involvedAmountSumOld}元以上；
+	被投诉集中程度在${complainFocusOld}次/天以上；
+	
+	修改为：
+	
+	被投诉风险指数在${complainIndexNew}以上；
+	被投诉数量在${complainCountNew}件以上；
+	被投诉涉案金额在${involvedAmountSumNew}元以上；
+	被投诉集中程度在${complainFocusNew}次/天以上；
+	
+	请知晓，谢谢！
+									贵阳市工商局
+									${time}
