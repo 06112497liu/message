@@ -52,15 +52,16 @@ public class MessageServiceImpl implements MessageFacade {
 
         try {
             emailSender.doSendHtmlEmail(requestToSend);
-            requestToSend.setBtEmailRequestStatus(BtEmailRequestStatusEnum.SUCCESS);
+            result.setSuccess(true);
+            result.setData(BtEmailRequestStatusEnum.SUCCESS);
             logger.debug("Send email success :{}", requestToSend);
         } catch (Exception e) {
             logger.error(MessageFormat.format("第{0,number}次发送邮件失败。邮件详情：{1}",
                     requestToSend.getRetry() + 1, requestToSend), e);
-            requestToSend.setBtEmailRequestStatus(BtEmailRequestStatusEnum.FAILED);
+            result.setSuccess(false);
+            result.setData(BtEmailRequestStatusEnum.FAILED);
             requestToSend.setFailMessage(e.getMessage());
         }
-        result.setData(requestToSend);
         return result;
     }
 
