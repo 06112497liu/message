@@ -88,6 +88,7 @@ public class MessageServiceImpl implements MessageFacade {
         MessageResult result = new MessageResult();
         SmsResult smsResult = btSmsService.send(target,params,smsTemplateCode);
         result.setData(smsResult);
+        if ("1".equalsIgnoreCase(smsResult.getState())) result.setSuccess(true);
         return result;
     }
 
